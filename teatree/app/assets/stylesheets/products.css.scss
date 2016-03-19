@@ -2,12 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+header {
+  background-color: gray;
+  padding-bottom: 15px;
+}
+
+body {
+  padding: 10px;
+}
+
 .logo {
   float: left;
 }
 
 .submit_review {
+  font-size: 24px;
   float: right;
+  padding: 10px;
 }
 
 .clearfix:after {
@@ -18,4 +29,10 @@
 
 li {
   list-style: none;
+}
+
+.log_in {
+  float: right;
+  font-size:  24px;
+  padding: 10px;
 }
