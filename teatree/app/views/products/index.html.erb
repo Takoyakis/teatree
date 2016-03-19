@@ -1,7 +1,18 @@
 <header>
-  <div class="logo">Tea Tree</div>
-  <div class="submit_review">
-    投稿する</div>
+  <div class="clearfix">
+    <ul>
+      <li>
+        <h1>
+          <div class="logo"><%= link_to "Tea Tree", "/" %></div>
+        </h1>
+      </li>
+      <li>
+        <div class="submit_review">
+          <%= link_to "投稿する", "#" %>
+        </div>
+      </li>
+    </ul>
+  </div>
 </header><!-- /header -->
 <div class="content">
   <% @products.each do |tea| %>
