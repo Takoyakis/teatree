@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319120147) do
+ActiveRecord::Schema.define(version: 20160320095410) do
+
+  create_table "postings", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.integer  "gram",        limit: 4
+    t.integer  "time",        limit: 4
+    t.text     "experience",  limit: 65535
+    t.text     "coment",      limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "temperature", limit: 4
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name",        limit: 255

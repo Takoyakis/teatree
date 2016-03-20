@@ -1,0 +1,13 @@
+
+<%= form_tag('/posting', method: :post) do %>
+  <h3>
+    最近飲んだお茶
+  </h3>
+  <input placeholder="茶葉の名前" type="text" name="name"><br/>
+  <input placeholder="量" type="integer" name="gram"><br/>
+  <input placeholder="温度" type="integer" name="temperature"><br/>
+  <input placeholder="抽出時間" type="integer" name="time"><br/>
+  <input placeholder="どんな時に誰と飲んだか。どういう話をしたか" type="text" name="experience"><br/>
+  <input placeholder="コメント" type="text" name="coment"><br/>
+  <input type="submit" value="SENT">
+<% end %>
