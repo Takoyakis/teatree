@@ -10,7 +10,7 @@ class PostingController < ApplicationController
   def index
     @postings = Posting.all.limit(12)
   end
-
+  
 
   private
   def posting_params

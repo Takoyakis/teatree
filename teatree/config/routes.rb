@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-root 'products#index' 
+root 'teas#index' 
 resources :users
-resources :products
+resources :teas
 resources :posting
 
 end
