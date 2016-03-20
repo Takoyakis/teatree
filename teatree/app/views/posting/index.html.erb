@@ -1,0 +1,37 @@
+<header>
+  <div class="nav_bar clearfix">
+    <ul>
+      <li>
+        <h1>
+          <div class="logo"><%= link_to "Tea Tree", "/" %></div>
+        </h1>
+      </li>
+        <div class="submit_review">
+          <%= link_to "投稿する", "/posting/new" %>
+        </div>
+      </li>
+      <li>
+        <div class="log_in prefix">
+          <%= link_to "ログイン", new_user_session_path %>
+        </div>
+      </li>
+      <li>
+    </ul>
+  </div>
+</header><!-- /header -->
+<div class="content">
+  <% @postings.each do |tea| %>
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= image_tag "#{tea.image}" %>
+        <div class="caption">
+          <h3><%= tea.name %></h3>
+          <p><%= tea.experience %></p>
+          <p><a href="#" class="btn btn-primary" role="button">コメントする</a> <a href="#" class="btn btn-default" role="button">詳細</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
