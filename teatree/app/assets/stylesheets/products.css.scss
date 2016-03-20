@@ -3,12 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 header {
-  background-color: gray;
-  padding-bottom: 15px;
+  background-color: #eee8aa;
+
+
 }
 
 body {
-  padding: 10px;
+
 }
 
 .logo {
@@ -35,4 +36,9 @@ li {
   float: right;
   font-size:  24px;
   padding: 10px;
+}
+
+.nav_bar{
+  width: 980px;
+  text-align: center;
 }
