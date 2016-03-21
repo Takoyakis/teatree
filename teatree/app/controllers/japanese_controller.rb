@@ -1,7 +1,14 @@
 class JapaneseController < ApplicationController
 
   def index
-    @japanese = Posting.all.limit(12)
+    @japanese = []
+    posting_all = Posting.all
+
+    posting_all.each do |ele|
+      if ele.category_id == 1
+        @japanese << ele
+      end
+    end
   end
 
   def show
