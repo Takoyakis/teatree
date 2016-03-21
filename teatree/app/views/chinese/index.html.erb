@@ -6,16 +6,27 @@
           <div class="logo"><%= link_to "Tea Tree", "/" %></div>
         </h1>
       </li>
+      <li>
         <div class="submit_review">
           <%= link_to "投稿する", "/posting/new" %>
         </div>
       </li>
-      <li>
-        <div class="log_in prefix">
-          <%= link_to "ログイン", new_user_session_path %>
-        </div>
-      </li>
-      <li>
+      <% if user_signed_in? %>
+        <li>
+          <div class="log_in prefix">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </div>
+        </li>
+        <li class="name prefix">
+          <%= current_user.name %>さん
+        </li>
+      <% else %>
+        <li>
+          <div class="log_in prefix">
+            <%= link_to "ログイン", new_user_session_path %>
+          </div>
+        </li>
+      <% end %>
     </ul>
   </div>
 </header><!-- /header -->

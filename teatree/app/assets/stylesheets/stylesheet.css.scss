@@ -1,6 +1,11 @@
 .nav_bar {
   width: auto;
-  background-color: #eee8aa;
+  background-color: #00ff7f;
+}
+
+.name {
+  float: right;
+  margin-right: 5px;
 }
 
 li {
@@ -27,4 +32,12 @@ li {
   width:390px;
   height: 270px;
   overflow: hidden;
+}
+
+footer {
+  background-color: #556b2f;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  height :40px;
 }
