@@ -4,5 +4,5 @@ root 'teas#index'
 resources :users
 resources :teas
 resources :posting
-
+resources :black, :only => [:index, :show]
 end

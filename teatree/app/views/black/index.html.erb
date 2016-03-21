@@ -20,8 +20,8 @@
   </div>
 </header><!-- /header -->
 <div class="content">
-  <% @postings.each do |tea| %>
   <div class="row">
+  <% @black.each do |tea| %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <%= image_tag "#{tea.image}" %>
@@ -32,6 +32,6 @@
         </div>
       </div>
     </div>
-  </div>
   <% end %>
+  </div>
 </div>
