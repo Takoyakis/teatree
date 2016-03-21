@@ -9,6 +9,7 @@ class BlackController < ApplicationController
         @black << ele
       end
     end
+
   end
 
    def show
