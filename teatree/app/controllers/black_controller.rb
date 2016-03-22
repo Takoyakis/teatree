@@ -12,8 +12,9 @@ class BlackController < ApplicationController
 
   end
 
-   def show
-   end
+  def show
+    @tea = Posting.find(params[:id])
+  end
 
    
 end

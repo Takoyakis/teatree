@@ -63,3 +63,17 @@ footer {
 .thumbnail {
   background-color: #f5f5f5;
 }
+
+.float_left {
+  float: left;
+}
+
+.float_right {
+  float: right;
+}
+
+.clearfix:after {
+  content:"";
+  display: block;
+  clear: both;
+}
