@@ -13,16 +13,16 @@
       </li>
       <% if user_signed_in? %>
         <li>
-          <div class="log_in prefix">
+          <div class="log_in clearfix">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </div>
         </li>
-        <li class="name prefix">
+        <li class="name clearfix">
           <%= current_user.name %>さん
         </li>
       <% else %>
         <li>
-          <div class="log_in prefix">
+          <div class="log_in clearfix">
             <%= link_to "ログイン", new_user_session_path %>
           </div>
         </li>
@@ -40,7 +40,7 @@
           <h3><%= tea.name %></h3>
           <h4>投稿者：<%= tea.user.name %></h4>
           <p><%= tea.experience %></p>
-          <p><a href="#" class="btn btn-primary" role="button">コメントする</a> <%= link_to "詳細",black_path(tea.id), :class => "btn btn-default", :role => "button" %></p>
+          <p><a href="#" class="btn btn-primary" role="button">コメントする</a> <%= link_to "詳細", black_path(tea.id), :class => "btn btn-default", :role => "button" %></p>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-class ChineseController < ApplicationController
+class ChineseController < TeaInfoController
 
   def index
     @chinese = []
@@ -9,9 +9,6 @@ class ChineseController < ApplicationController
         @chinese << ele
       end
     end
-  end
-
-  def show
   end
 
 end

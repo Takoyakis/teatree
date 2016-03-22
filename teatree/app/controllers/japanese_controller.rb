@@ -1,4 +1,4 @@
-class JapaneseController < ApplicationController
+class JapaneseController < TeaInfoController
 
   def index
     @japanese = []
@@ -11,7 +11,4 @@ class JapaneseController < ApplicationController
     end
   end
 
-  def show
-  end
-  
 end
