@@ -4,12 +4,14 @@ class ReviewController < ApplicationController
   end
 
   def create
-    Review.create(review: review_params[:review])
+    binding.pry
+    Review.create(review: review_params[:review], posting_id: review_params[:], user_id: current_user.id)
+    redirect_to :back
   end
 
 
   private
   def review_params
-    params.permit(:review)
+    params.permit(:review, :posting_id, :user_id)
   end
 end
