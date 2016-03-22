@@ -1,4 +1,4 @@
-class BlackController < ApplicationController
+class BlackController < TeaInfoController
 
   def index
     @black = []
@@ -12,9 +12,4 @@ class BlackController < ApplicationController
 
   end
 
-  def show
-    @tea = Posting.find(params[:id])
-  end
-
-   
 end
