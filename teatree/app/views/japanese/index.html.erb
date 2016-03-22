@@ -40,7 +40,7 @@
           <h3><%= tea.name %></h3>
           <h4>投稿者：<%= tea.user.name %></h4>
           <p><%= tea.experience %></p>
-          <p><a href="#" class="btn btn-primary" role="button">コメントする</a> <a href="#" class="btn btn-default" role="button">詳細</a></p>
+          <p><a href="#" class="btn btn-primary" role="button">コメントする</a> <%= link_to "詳細", japanese_path(tea.id), :class => "btn btn-default", :role => "button" %></p>
         </div>
       </div>
     </div>
