@@ -1,19 +1,45 @@
-
+<header>
+  <div class="nav_bar clearfix">
+    <ul>
+      <li>
+        <h1>
+          <div class="logo"><%= link_to "Tea Tree", "/" %></div>
+        </h1>
+      </li>
+    </ul>
+  </div>
+</header><!-- /header -->
+<div class="center">
 <%= form_tag('/posting', method: :post) do %>
   <h3>
     最近飲んだお茶
   </h3>
-  <p>お茶の種類<br/>
+  <div class="posting_form">
+    <p span="post_category">お茶の種類</p>
     <input type="radio" name="category_id" value="0">紅茶
     <input type="radio" name="category_id" value="1">緑茶
     <input type="radio" name="category_id" value="2">中国茶
     <input type="radio" name="category_id" value="3">その他
-  </p>
-  <p>名前<input placeholder="茶葉の名前" type="text" name="name"><br/></p>
-  <p>茶葉の量<input placeholder="量" type="integer" name="gram"><br/></p>
-  <p>温度<input placeholder="温度" type="integer" name="temperature"><br/></p>
-  <p>抽出時間<input placeholder="抽出時間" type="integer" name="time"><br/></p>
-  <p> できごと<textarea placeholder="どんな時に誰と飲んだか。どういう話をしたか" type="text" name="experience"></textarea><br/></p>
-  <p>お茶に対するコメント<input placeholder="コメント" type="text" name="coment"><br/></p>
+  </div>
+  <div class="posting_form">
+    <p span="posting_category">名前</p>
+    <textarea cols="40" rows="1" placeholder="茶葉の名前" type="text" name="name"></textarea><br/>
+  </div>
+  <div class="posting_form">
+    <p span="posting_category">茶葉の量</p><input placeholder="量" type="integer" name="gram">g<br/>
+  </div>
+  <div class="posting_form">
+    <p span="posting_category">温度</p><input placeholder="温度" type="integer" name="temperature">度<br/>
+  </div>
+  <div class="posting_form">
+    <p span="posting_category">抽出時間</p><input placeholder="抽出時間" type="integer" name="time">分<br/>
+  </div>
+  <div class="posting_form">
+    <p span="posting_category">できごと</p><textarea rows="4" cols="40" placeholder="どんな時に誰と飲んだか。どういう話をしたか" type="text" name="experience"></textarea><br/>
+  </div>
+  <div class="posting_form">
+    <p span="posting_category">お茶に対するコメント</p><textarea rows="4" cols="40" placeholder="コメント" type="text" name="coment"></textarea><br/>
+  </div>
   <input type="submit" value="SENT">
 <% end %>
+</div>

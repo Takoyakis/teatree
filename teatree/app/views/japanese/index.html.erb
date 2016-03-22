@@ -38,6 +38,7 @@
         <%= image_tag "#{tea.image}" %>
         <div class="caption">
           <h3><%= tea.name %></h3>
+          <h4>投稿者：<%= tea.user.name %></h4>
           <p><%= tea.experience %></p>
           <p><a href="#" class="btn btn-primary" role="button">コメントする</a> <a href="#" class="btn btn-default" role="button">詳細</a></p>
         </div>
@@ -46,3 +47,4 @@
   <% end %>
   </div>
 </div>
+<footer>Copyright TeaTree</footer>

@@ -13,16 +13,16 @@
       </li>
       <% if user_signed_in? %>
         <li>
-          <div class="log_in prefix">
+          <div class="log_in clearfix">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </div>
         </li>
-        <li class="name prefix">
+        <li class="name clearfix">
           <%= current_user.name %>さん
         </li>
       <% else %>
         <li>
-          <div class="log_in prefix">
+          <div class="log_in clearfix">
             <%= link_to "ログイン", new_user_session_path %>
           </div>
         </li>
@@ -30,21 +30,17 @@
     </ul>
   </div>
 </header><!-- /header -->
-<div class="content">
-  <div class="row">
-  <% @chinese.each do |tea| %>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <%= image_tag "#{tea.image}" %>
-        <div class="caption">
-          <h3><%= tea.name %></h3>
-          <h4>投稿者：<%= tea.user.name %></h4>
-          <p><%= tea.experience %></p>
-          <p><a href="#" class="btn btn-primary" role="button">コメントする</a> <a href="#" class="btn btn-default" role="button">詳細</a></p>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div class="clearfix">
+  <div class="float_left">
+    <h3><%= @tea.name %></h3>
+    <%= image_tag @tea.image %>
+  </div>
+  <div class="float_left">
+    <p>茶葉の量：<%= @tea.gram %>g</p>
+    <p>抽出時間：<%= @tea.time %>分</p>
+    <p>抽出温度：<%= @tea.temperature %></p>
+    <p>このお茶を飲んだときにまつわるできごと：<br/ ><%= @tea.experience %></p>
+    <p>こだわり：<br/ ><%= @tea.coment %></p>
+    
   </div>
 </div>
-<footer>Copyright TeaTree</footer>
