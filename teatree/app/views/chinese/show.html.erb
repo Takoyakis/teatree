@@ -46,10 +46,9 @@
     <p>抽出温度：<%= @tea.temperature %>度</p>
     <p>このお茶を飲んだときにまつわるできごと：<br/ ><%= @tea.experience %></p>
     <p>こだわり：<br/ ><%= @tea.coment %></p>
-    <a href="/review/new" class="btn btn-primary" role="button">コメント</a>
     <%= form_tag("/chinese/#{@tea.id}/review", method: :post) do %>
     <textarea placeholder="コメント" cols="40" rows="5" name="review"></textarea><br / >
-    <input type="submit" value="SENT">
+    <input class="btn btn-primary green" type="submit" value="送信">
     <% end %>
   </div>
 </div>
