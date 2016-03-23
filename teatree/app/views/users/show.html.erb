@@ -1,0 +1,64 @@
+<header>
+  <div class="nav_bar clearfix">
+    <ul>
+      <li>
+        <h1>
+          <div class="logo"><%= link_to "Tea Tree", "/" %></div>
+        </h1>
+      </li>
+      <li>
+        <div class="submit_review">
+          <%= link_to "投稿する", "/posting/new" %>
+        </div>
+      </li>
+      <% if user_signed_in? %>
+        <li>
+          <div class="log_in clearfix">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </div>
+        </li>
+        <li class="name clearfix">
+          <%=link_to "#{current_user.name}", "users/#{:id}" %>さん
+        </li>
+      <% else %>
+        <li>
+          <div class="log_in clearfix">
+            <%= link_to "ログイン", new_user_session_path %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</header><!-- /header -->
+<div class="content">
+  <div class="mypage">
+    <div class="float_left">
+      <%= image_tag "#{current_user.avatar}" %>
+    </div>
+    <div class="float_left">
+      <h2><%= current_user.name %></h2>
+      <p>好きな茶葉：<%= current_user.favorite_leaf %></p>
+      <p>好きなお店：<%= current_user.favorite_shop %></p>
+      <p>わたしのこだわり：<%= current_user.preference %></p>
+    </div>
+    <div class="mypage_edit float_right">
+      <%= link_to "編集", edit_user_registration_path, :class => "btn btn-prymary green" %>
+    </div>
+  </div>
+  <div>
+    <div class="row clearfix" style='clear: both;'>
+      <% current_user.postings.each do |mytea| %>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <%= image_tag "#{mytea.image}" %>
+            <div class="caption">
+              <h3><%= mytea.name %></h3>
+              <p><%= mytea.experience %></p>
+              <p><%= link_to "詳細", "#", :class => "btn btn-default", :role => "button" %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

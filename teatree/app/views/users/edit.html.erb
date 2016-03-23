@@ -1,0 +1,57 @@
+<header>
+  <div class="nav_bar clearfix">
+    <ul>
+      <li>
+        <h1>
+          <div class="logo"><%= link_to "Tea Tree", "/" %></div>
+        </h1>
+      </li>
+      <li>
+        <div class="submit_review">
+          <%= link_to "投稿する", "/posting/new" %>
+        </div>
+      </li>
+      <% if user_signed_in? %>
+        <li>
+          <div class="log_in clearfix">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </div>
+        </li>
+        <li class="name clearfix">
+          <%=link_to "#{current_user.name}", "users/#{:id}" %>さん
+        </li>
+      <% else %>
+        <li>
+          <div class="log_in clearfix">
+            <%= link_to "ログイン", new_user_session_path %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</header><!-- /header -->
+<div class="content">
+  <div class="center">
+    <h2><%= current_user.name %></h2>
+    <%= image_tag "#{current_user.avatar}" %>
+    <%= form_tag("/users", method: :patch) do %>
+    <div class="">
+      <input type="file" name="avatar" >
+    </div>
+    <p>好きなお茶の種類</p><br />
+      <input type="radio" name="favorite_tea_type" value="0">紅茶(ストレート)
+      <input type="radio" name="favorite_tea_type" value="1">ミルクティー
+      <input type="radio" name="favorite_tea_type" value="2">レモンティー
+      <input type="radio" name="favorite_tea_type" value="3">緑茶
+      <input type="radio" name="favorite_tea_type" value="4">中国茶
+      <input type="radio" name="favorite_tea_type" value="5">チャイ
+    <p>好きな茶葉</p>
+      <input type="text" name="favorite_leaf">
+    <p>好きなお店</p>
+      <input type="text" name="favorite_shop">
+    <p>わたしのこだわり</p>
+      <textarea name="preference" cols="40" rows="4"></textarea><br/ >
+    <input type="submit" value="保存" class="btn btn-primary green">
+    <% end %>
+  </div>
+</div>
