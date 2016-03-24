@@ -1,0 +1,50 @@
+<header>
+  <div class="nav_bar clearfix">
+    <ul>
+      <li>
+        <h1>
+          <div class="logo"><%= link_to "Tea Tree", "/" %></div>
+        </h1>
+      </li>
+      <li>
+        <div class="submit_review">
+          <%= link_to "投稿する", "/posting/new" %>
+        </div>
+      </li>
+      <% if user_signed_in? %>
+        <li>
+          <div class="log_in clearfix">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </div>
+        </li>
+        <li class="name clearfix">
+          <%=link_to "#{current_user.name}", "users/#{:id}" %>さん
+        </li>
+      <% else %>
+        <li>
+          <div class="log_in clearfix">
+            <%= link_to "ログイン", new_user_session_path %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</header><!-- /header -->
+<div class="content">
+  <div class="row">
+  <% @tea_record.each do |tea| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= image_tag "#{tea.image}" %>
+        <div class="caption">
+          <h3><%= tea.name %></h3>
+          <h4>投稿者：<%= tea.user.name %></h4>
+          <p><%= tea.experience %></p>
+          <p><%= link_to "詳細", black_path(tea.id), :class => "btn btn-default", :role => "button" %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+<footer>Copyright TeaTree</footer>

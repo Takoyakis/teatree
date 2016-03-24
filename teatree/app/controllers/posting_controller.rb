@@ -13,6 +13,10 @@ class PostingController < ApplicationController
     @postings = Posting.all.limit(12)
   end
 
+  def search
+    @tea_record = Posting.where('name LIKE(?)', "%#{params[:keyword]}%")
+  end
+
 
   private
   def posting_params
