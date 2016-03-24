@@ -1,0 +1,33 @@
+<header>
+  <div class="nav_bar clearfix">
+    <ul>
+      <li>
+        <h1>
+          <div class="logo"><%= link_to "Tea Tree", "/" %></div>
+        </h1>
+      </li>
+    </ul>
+  </div>
+</header><!-- /header -->
+<div class="center">
+<%= form_tag("/posting/#{params[:id]}", method: :patch) do %>
+  <h3>編集</h3>
+  <p>茶葉のなまえ：<%= @tea_record.name %></p>
+  <div class="posting_form">
+    <p span="posting_category">茶葉の量</p><input placeholder="量" type="integer" name="gram">g<br/>
+  </div>
+  <div class="posting_form">
+    <p span="posting_category">温度</p><input placeholder="温度" type="integer" name="temperature">度<br/>
+  </div>
+  <div class="posting_form">
+    <p span="posting_category">抽出時間</p><input placeholder="抽出時間" type="integer" name="time">分<br/>
+  </div>
+  <div class="posting_form">
+    <p span="posting_category">できごと</p><textarea rows="4" cols="40" placeholder="どんな時に誰と飲んだか。どういう話をしたか" type="text" name="experience"></textarea><br/>
+  </div>
+  <div class="posting_form">
+    <p span="posting_category">お茶に対するコメント</p><textarea rows="4" cols="40" placeholder="コメント" type="text" name="coment"></textarea><br/>
+  </div>
+  <input type="submit" value="SENT">
+<% end %>
+</div>
