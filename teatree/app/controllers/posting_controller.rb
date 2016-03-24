@@ -17,6 +17,20 @@ class PostingController < ApplicationController
     @tea_record = Posting.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+  def destroy
+    tea_record = Posting.find(params[:id])
+    if tea_record.user_id == current_user.id
+      tea_record.destroy
+    end
+
+    if tea_record.category_id == 0
+      redirect_to controller: :black, action: :index
+    elsif tea_record.category_id == 1
+      redirect_to controller: :japanese, action: :index
+    else tea_record.category_id == 2
+      redirect_to controller: :chinese, action: :index
+    end
+  end
 
   private
   def posting_params
