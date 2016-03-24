@@ -1,3 +1,35 @@
+<header>
+  <div class="nav_bar clearfix">
+    <ul>
+      <li>
+        <h1>
+          <div class="logo"><%= link_to "Tea Tree", "/" %></div>
+        </h1>
+      </li>
+      <li>
+        <div class="submit_review">
+          <%= link_to "投稿する", "/posting/new" %>
+        </div>
+      </li>
+      <% if user_signed_in? %>
+        <li>
+          <div class="log_in clearfix">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </div>
+        </li>
+        <li class="name clearfix">
+          <%= current_user.name %>さん
+        </li>
+      <% else %>
+        <li>
+          <div class="log_in clearfix">
+            <%= link_to "ログイン", new_user_session_path %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</header><!-- /header -->
 <div class="content">
   <div class="center">
     <h2><%= current_user.name %></h2>
@@ -7,7 +39,7 @@
       <div>
         <%= image_tag "#{current_user.avatar}" %>
         <div>
-          <input type="file" name="avatar" >
+          <%= f.file_field('avatar') %>
         </div>
         <%= f.label :好きなお茶の種類 %><br/ >
           <%= f.radio_button :favorite_tea_type, '0' %>紅茶(ストレート)
@@ -58,3 +90,4 @@
     <%= link_to "Back", :back %>
     </div>
 </div>
+<footer>Copyright TeaTree</footer>

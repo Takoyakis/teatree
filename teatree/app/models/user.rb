@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
   has_attached_file :avatar,
                     styles: {medium:"500x500#", thumb:"300x300#"}
   validates_attachment_content_type :avatar,
-                                    content_type: ["image/ipg", "image/ipeg", "image/png"]
+                                    content_type: ["image/jpg", "image/jpeg", "image/png"]
   validates :name, presence: true
 end
