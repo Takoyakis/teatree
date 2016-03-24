@@ -6,19 +6,28 @@
           <div class="logo"><%= link_to "Tea Tree", "/" %></div>
         </h1>
       </li>
+      <li>
+        <div class="float_left">
+          <form accept-charset="UTF-8" action="/posting/search" method="get">
+            <p>お茶
+                <input placeholder="お茶のなまえ" type="text" name="keyword" value="">
+                <input type="submit" value="検索">
+            </p>
+            </form>
+        </div>
+      <li>
+        <div class="submit_review">
+          <%= link_to "投稿する", "/posting/new" %>
+        </div>
+      </li>
       <% if user_signed_in? %>
-        <li>
-          <div class="submit_review">
-            <%= link_to "投稿する", "/posting/new" %>
-          </div>
-        </li>
         <li>
           <div class="log_in clearfix">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </div>
         </li>
         <li class="name clearfix">
-          <%= current_user.name %>さん
+          <%=link_to "#{current_user.name}", "users/#{current_user.id}" %>さん
         </li>
       <% else %>
         <li>

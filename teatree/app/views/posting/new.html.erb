@@ -6,40 +6,75 @@
           <div class="logo"><%= link_to "Tea Tree", "/" %></div>
         </h1>
       </li>
+      <li>
+        <div class="float_left">
+          <form accept-charset="UTF-8" action="/posting/search" method="get">
+            <p>お茶
+                <input placeholder="お茶のなまえ" type="text" name="keyword" value="">
+                <input type="submit" value="検索">
+            </p>
+            </form>
+        </div>
+      <% if user_signed_in? %>
+        <li>
+          <div class="log_in clearfix">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </div>
+        </li>
+        <li class="name clearfix">
+          <%=link_to "#{current_user.name}", "users/#{current_user.id}" %>さん
+        </li>
+      <% else %>
+        <li>
+          <div class="log_in clearfix">
+            <%= link_to "ログイン", new_user_session_path %>
+          </div>
+        </li>
+      <% end %>
     </ul>
   </div>
 </header><!-- /header -->
-<div class="center">
+<div class="content center">
 <%= form_tag('/posting', method: :post) do %>
   <h3>
     最近飲んだお茶
   </h3>
+  <p>お茶の種類</p>
   <div class="posting_form">
-    <p span="post_category">お茶の種類</p>
     <input type="radio" name="category_id" value="0">紅茶
     <input type="radio" name="category_id" value="1">緑茶
     <input type="radio" name="category_id" value="2">中国茶
     <input type="radio" name="category_id" value="3">その他
-  </div>
+  </div><br/>
+  <p>写真</p>
   <div class="posting_form">
-    <p span="posting_category">名前</p>
+    <input type="file" name="image">
+  </div><br/>
+  <p>名前</p>
+  <div class="posting_form">
     <textarea cols="40" rows="1" placeholder="茶葉の名前" type="text" name="name"></textarea><br/>
   </div>
+  <p>茶葉の量</p>
   <div class="posting_form">
-    <p span="posting_category">茶葉の量</p><input placeholder="量" type="integer" name="gram">g<br/>
+    <input placeholder="量" type="integer" name="gram">g<br/>
   </div>
+  <p>温度</p>
   <div class="posting_form">
-    <p span="posting_category">温度</p><input placeholder="温度" type="integer" name="temperature">度<br/>
+    <input placeholder="温度" type="integer" name="temperature">度<br/>
   </div>
+  <p>抽出時間</p>
   <div class="posting_form">
-    <p span="posting_category">抽出時間</p><input placeholder="抽出時間" type="integer" name="time">分<br/>
+    <input placeholder="抽出時間" type="integer" name="time">分<br/>
   </div>
+  <p>できごと</p>
   <div class="posting_form">
-    <p span="posting_category">できごと</p><textarea rows="4" cols="40" placeholder="どんな時に誰と飲んだか。どういう話をしたか" type="text" name="experience"></textarea><br/>
+    <textarea rows="4" cols="40" placeholder="どんな時に誰と飲んだか。どういう話をしたか" type="text" name="experience"></textarea><br/>
   </div>
+  <p>お茶に対するコメント</p>
   <div class="posting_form">
-    <p span="posting_category">お茶に対するコメント</p><textarea rows="4" cols="40" placeholder="コメント" type="text" name="coment"></textarea><br/>
+    <textarea rows="4" cols="40" placeholder="コメント" type="text" name="coment"></textarea><br/>
   </div>
   <input type="submit" value="SENT">
 <% end %>
 </div>
+<footer>Copyright TeaTree</footer>

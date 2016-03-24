@@ -14,20 +14,21 @@
   <h3>編集</h3>
   <p>茶葉のなまえ：<%= @tea_record.name %></p>
   <div class="posting_form">
-    <p span="posting_category">茶葉の量</p><input placeholder="量" type="integer" name="gram">g<br/>
+    <p span="posting_category">茶葉の量</p><input placeholder="量" type="integer" name="gram" value="<%= @tea_record.gram %>">g<br/>
   </div>
   <div class="posting_form">
-    <p span="posting_category">温度</p><input placeholder="温度" type="integer" name="temperature">度<br/>
+    <p span="posting_category">温度</p><input placeholder="温度" type="integer" name="temperature" value="<%= @tea_record.temperature %>" >度<br/>
   </div>
   <div class="posting_form">
-    <p span="posting_category">抽出時間</p><input placeholder="抽出時間" type="integer" name="time">分<br/>
+    <p span="posting_category">抽出時間</p><input placeholder="抽出時間" type="integer" name="time" value="<%= @tea_record.time %>">分<br/>
   </div>
   <div class="posting_form">
-    <p span="posting_category">できごと</p><textarea rows="4" cols="40" placeholder="どんな時に誰と飲んだか。どういう話をしたか" type="text" name="experience"></textarea><br/>
+    <p span="posting_category">できごと</p><textarea rows="4" cols="40" placeholder="どんな時に誰と飲んだか。どういう話をしたか" type="text" name="experience"><%= @tea_record.experience %></textarea><br/>
   </div>
   <div class="posting_form">
-    <p span="posting_category">お茶に対するコメント</p><textarea rows="4" cols="40" placeholder="コメント" type="text" name="coment"></textarea><br/>
+    <p span="posting_category">お茶に対するコメント</p><textarea rows="4" cols="40" placeholder="コメント" type="text" name="coment"><%= @tea_record.coment %></textarea><br/>
   </div>
   <input type="submit" value="SENT">
 <% end %>
 </div>
+<footer>Copyright TeaTree</footer>

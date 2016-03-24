@@ -7,6 +7,15 @@
         </h1>
       </li>
       <li>
+        <div class="float_left">
+          <form accept-charset="UTF-8" action="/posting/search" method="get">
+            <p>お茶
+                <input placeholder="お茶のなまえ" type="text" name="keyword" value="">
+                <input type="submit" value="検索">
+            </p>
+            </form>
+        </div>
+      <li>
         <div class="submit_review">
           <%= link_to "投稿する", "/posting/new" %>
         </div>
@@ -18,7 +27,7 @@
           </div>
         </li>
         <li class="name clearfix">
-          <%=link_to "#{current_user.name}", "users/#{:id}" %>さん
+          <%=link_to "#{current_user.name}", "users/#{current_user.id}" %>さん
         </li>
       <% else %>
         <li>
@@ -55,3 +64,4 @@
     <% end %>
   </div>
 </div>
+<footer>Copyright TeaTree</footer>
