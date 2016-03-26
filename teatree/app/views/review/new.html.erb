@@ -1,0 +1,17 @@
+<header>
+  <div class="nav_bar clearfix">
+    <ul>
+      <li>
+        <h1>
+          <div class="logo"><%= link_to "Tea Tree", "/" %></div>
+        </h1>
+      </li>
+    </ul>
+  </div>
+</header><!-- /header -->
+<h2>コメントする</h2>
+<%= form_tag('/review', method: :post) do %>
+  <textarea placeholder="コメント" cols="40" rows="5" name="review"></textarea><br / >
+  <input type="submit" value="SENT">
+<% end %>
+<footer>Copyright TeaTree</footer>
