@@ -59,7 +59,7 @@
       <%= link_to '編集', "/posting/#{params[:id]}/edit", method: :get %>
       <%= link_to '削除', "/posting/#{params[:id]}", method: :delete %>
     <% end %>
-    <%= form_tag("/black/#{@tea.id}/review", method: :post) do %>
+    <%= form_tag("/black/#{@tea.id}/review", remote: true, method: :post) do %>
     <%= flash[:alert] %><br/>
     <textarea placeholder="コメント" cols="40" rows="5" name="review"></textarea><br / >
     <input class="btn green" type="submit" value="送信">
@@ -69,11 +69,6 @@
 
 <div class="center">
   <h3>コメント一覧</h3>
-  <% @review.each do |rev| %>
-  <p>
-    <%= rev.user.name %>：
-    <%= rev.review %>
-  </p>
-  <% end %>
+  <%= render :partial => "review", locals:{review: @review}, :collections => @review %>
 </div>
 <footer>Copyright TeaTree</footer>
