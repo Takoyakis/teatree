@@ -8,7 +8,7 @@
       </li>
       <li>
         <div class="submit_review">
-          <%= link_to "投稿する", "/posting/new" %>
+          <%= link_to "投稿する", "/postings/new" %>
         </div>
       </li>
       <% if user_signed_in? %>
@@ -53,7 +53,7 @@
         <%= f.label :好きなお店 %>
           <%= f.text_field 'favorite_shop' %><br/ >
         <%= f.label :わたしのこだわり %>
-          <textarea name="preference" cols="40" rows="4"></textarea><br/ >
+          <%= f.text_area :preference %><br/ >
       </div>
       <div class="field">
         <%= f.label :email %><br />

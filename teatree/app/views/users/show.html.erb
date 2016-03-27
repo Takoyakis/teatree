@@ -8,7 +8,7 @@
       </li>
       <li>
         <div class="float_left">
-          <form accept-charset="UTF-8" action="/posting/search" method="get">
+          <form accept-charset="UTF-8" action="/postings/search" method="get">
             <p>お茶
                 <input placeholder="お茶のなまえ" type="text" name="keyword" value="">
                 <input type="submit" value="検索">
@@ -17,7 +17,7 @@
         </div>
       <li>
         <div class="submit_review">
-          <%= link_to "投稿する", "/posting/new" %>
+          <%= link_to "投稿する", "/postings/new" %>
         </div>
       </li>
       <% if user_signed_in? %>
@@ -63,7 +63,7 @@
             <div class="caption">
               <h3><%= mytea.name %></h3>
               <p><%= mytea.experience %></p>
-              <p><%= link_to "詳細", "#", :class => "btn btn-default", :role => "button" %></p>
+              <p><%= link_to "詳細", "/postings/#{mytea.id}", :class => "btn btn-default", :role => "button" %></p>
             </div>
           </div>
         </div>

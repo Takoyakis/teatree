@@ -1,12 +1,19 @@
-class PostingController < ApplicationController
+class PostingsController < TeaInfoController
 
   before_action :authenticate_user!, only: :new
 
   def create
-    Posting.create(category_id: posting_params[:category_id], name: posting_params[:name], gram: posting_params[:gram], temperature: posting_params[:temperature], time: posting_params[:time], experience: posting_params[:experience], coment: posting_params[:coment], user_id: current_user.id)
+    @posting = Posting.new(category_id: posting_params[:category_id], name: posting_params[:name], gram: posting_params[:gram], temperature: posting_params[:temperature], time: posting_params[:time], experience: posting_params[:experience], coment: posting_params[:coment], user_id: current_user.id, image: posting_params[:image])
+
+    if @posting.save
+      render :file => "/postings/create.html.erb"
+    else
+      render :new
+    end
   end
 
   def new
+    @posting = Posting.new
   end
 
   def index
@@ -54,7 +61,7 @@ class PostingController < ApplicationController
 
   private
   def posting_params
-    params.permit(:category_id, :name, :gram, :temperature, :time, :experience, :coment, :user_id)
+    params.permit(:category_id, :name, :gram, :temperature, :time, :experience, :coment, :user_id, :image)
   end
 
 end

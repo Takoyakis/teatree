@@ -8,7 +8,7 @@
       </li>
       <li>
         <div class="float_left">
-          <form accept-charset="UTF-8" action="/posting/search" method="get">
+          <form accept-charset="UTF-8" action="/postings/search" method="get">
             <p>お茶
                 <input placeholder="お茶のなまえ" type="text" name="keyword" value="">
                 <input type="submit" value="検索">
@@ -17,7 +17,7 @@
         </div>
       <li>
         <div class="submit_review">
-          <%= link_to "投稿する", "/posting/new" %>
+          <%= link_to "投稿する", "/postings/new" %>
         </div>
       </li>
       <% if user_signed_in? %>
@@ -55,14 +55,16 @@
     <p>抽出温度：<%= @tea.temperature %>度</p>
     <p>このお茶を飲んだときにまつわるできごと：<br/ ><%= @tea.experience %></p>
     <p>こだわり：<br/ ><%= @tea.coment %></p>
-    <% if @tea.user_id == current_user.id %>
-      <%= link_to '編集', "/posting/#{params[:id]}/edit", method: :get %>
-      <%= link_to '削除', "/posting/#{params[:id]}", method: :delete %>
-    <% end %>
-    <%= form_tag("/japanese/#{@tea.id}/review", method: :post) do %>
-    <%= flash[:alert] %><br/>
-    <textarea placeholder="コメント" cols="40" rows="5" name="review"></textarea><br / >
-    <input class="btn btn-primary green" type="submit" value="送信" >
+    <% if user_signed_in? %>
+      <% if @tea.user_id == current_user.id %>
+        <%= link_to '編集', "/postings/#{params[:id]}/edit", method: :get %>
+        <%= link_to '削除', "/postings/#{params[:id]}", method: :delete %>
+      <% end %>
+      <%= form_tag("/japanese/#{@tea.id}/review", method: :post) do %>
+      <%= flash[:alert] %><br/>
+      <textarea placeholder="コメント" cols="40" rows="5" name="review"></textarea><br / >
+      <input class="btn btn-primary green" type="submit" value="送信" >
+      <% end %>
     <% end %>
   </div>
 </div>

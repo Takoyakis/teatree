@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+devise_for :users
 root 'teas#index'
 resources :users
 resources :teas
-resources :posting do
+resources :postings do
   collection do
     get 'search'
   end

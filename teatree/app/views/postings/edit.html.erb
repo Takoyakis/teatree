@@ -10,7 +10,7 @@
   </div>
 </header><!-- /header -->
 <div class="center">
-<%= form_tag("/posting/#{params[:id]}", method: :patch) do %>
+<%= form_tag("/postings/#{params[:id]}", method: :patch) do %>
   <h3>編集</h3>
   <p>茶葉のなまえ：<%= @tea_record.name %></p>
   <div class="posting_form">

@@ -8,7 +8,7 @@
       </li>
       <li>
         <div class="float_left">
-          <form accept-charset="UTF-8" action="/posting/search" method="get">
+          <form accept-charset="UTF-8" action="/postings/search" method="get">
             <p>お茶
                 <input placeholder="お茶のなまえ" type="text" name="keyword" value="">
                 <input type="submit" value="検索">
@@ -34,11 +34,23 @@
     </ul>
   </div>
 </header><!-- /header -->
+
 <div class="content center">
-<%= form_tag('/posting', method: :post) do %>
+<%= form_for(@posting) do |f| %>
   <h3>
     最近飲んだお茶
   </h3>
+   <% if @posting.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= @posting.errors.count %>件のエラーがあります。</h4>
+
+      <ul>
+      <% @posting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+     </ul>
+    </div>
+   <% end %>
   <p>お茶の種類</p>
   <div class="posting_form">
     <input type="radio" name="category_id" value="0">紅茶
