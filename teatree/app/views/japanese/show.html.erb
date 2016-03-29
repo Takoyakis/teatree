@@ -27,7 +27,7 @@
           </div>
         </li>
         <li class="name clearfix">
-          <%=link_to "#{current_user.name}", "users/#{current_user.id}" %>さん
+          <%=link_to "#{current_user.name}", user_path(current_user.id) %>さん
         </li>
       <% else %>
         <li>

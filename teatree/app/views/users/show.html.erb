@@ -56,7 +56,7 @@
   </div>
   <div>
     <div class="row clearfix" style='clear: both;'>
-      <% current_user.postings.each do |mytea| %>
+      <% current_user.postings.order("created_at DESC").each do |mytea| %>
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
             <%= image_tag "#{mytea.image}" %>
