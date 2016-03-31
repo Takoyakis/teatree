@@ -60,7 +60,7 @@
   </div><br/>
   <p>写真</p>
   <div class="posting_form">
-    <input type="file" name="image">
+    <%= f.file_field :file, accept: "image/jpeg, image/jpg, image/png" %>
   </div><br/>
   <p>名前</p>
   <div class="posting_form">

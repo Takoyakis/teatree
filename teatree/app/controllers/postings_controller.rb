@@ -3,7 +3,15 @@ class PostingsController < TeaInfoController
   before_action :authenticate_user!, only: :new
 
   def create
-    @posting = Posting.new(category_id: posting_params[:category_id], name: posting_params[:name], gram: posting_params[:gram], temperature: posting_params[:temperature], time: posting_params[:time], experience: posting_params[:experience], coment: posting_params[:coment], user_id: current_user.id, image: posting_params[:image])
+    posting_image = image_params[:file]
+    image = {}
+
+    if posting_image != nil
+      image[:filename] = posting_image.original_filename
+      image[:file] = posting_image.read
+    end
+
+    @posting = Posting.new(category_id: posting_params[:category_id], name: posting_params[:name], gram: posting_params[:gram], temperature: posting_params[:temperature], time: posting_params[:time], experience: posting_params[:experience], coment: posting_params[:coment], user_id: current_user.id, filename: image[:filename], file: image[:file])
 
     if @posting.save
       render :file => "/postings/create.html.erb"
@@ -61,7 +69,13 @@ class PostingsController < TeaInfoController
 
   private
   def posting_params
-    params.permit(:category_id, :name, :gram, :temperature, :time, :experience, :coment, :user_id, :image)
+    params.permit(:category_id, :name, :gram, :temperature, :time, :experience, :coment, :user_id)
+  end
+
+  def image_params
+    params.permit(
+      :filename, :file
+      )
   end
 
 end
