@@ -3,4 +3,9 @@ class Posting < ActiveRecord::Base
   has_many :reviews
   validates :category_id, presence: true
   validates :name, presence: true
+
+  has_attached_file :image,
+                    :styles => {medium:"500x500#", thumb:"300x300#"}
+  validates_attachment_content_type :image,
+                                    content_type: ["image/jpg", "image/jpeg", "image/png"]
 end
