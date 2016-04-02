@@ -60,7 +60,7 @@
   </div><br/>
   <p>写真</p>
   <div class="posting_form">
-    <%= f.file_field :file, accept: "image/jpeg, image/jpg, image/png" %>
+    <%= f.file_field :image %>
   </div><br/>
   <p>名前</p>
   <div class="posting_form">
@@ -86,7 +86,7 @@
   <div class="posting_form">
     <textarea rows="4" cols="40" placeholder="コメント" type="text" name="coment"></textarea><br/>
   </div>
-  <input type="submit" value="SENT">
+  <%= f.submit %>
 <% end %>
 </div>
 <footer>Copyright TeaTree</footer>
