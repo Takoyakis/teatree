@@ -60,7 +60,7 @@
         <%= link_to '編集', "/postings/#{params[:id]}/edit", method: :get %>
         <%= link_to '削除', "/postings/#{params[:id]}", method: :delete %>
       <% end %>
-      <%= form_tag("/japanese/#{@tea.id}/review", method: :post) do %>
+      <%= form_tag("/postings/#{params[:id]}/review", method: :post) do %>
       <%= flash[:alert] %><br/>
       <textarea placeholder="コメント" cols="40" rows="5" name="review"></textarea><br / >
       <input class="btn btn-primary green" type="submit" value="送信" >

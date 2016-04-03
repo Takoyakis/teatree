@@ -47,7 +47,7 @@
       </div>
     </h3>
 
-    <%= image_tag @tea.image %>
+    <%= image_tag @tea.image, :class => "triming" %>
   </div>
   <div class="float_left">
     <p>茶葉の量：<%= @tea.gram %>g</p>
@@ -60,7 +60,7 @@
         <%= link_to '編集', "/postings/#{params[:id]}/edit", method: :get %>
         <%= link_to '削除', "/postings/#{params[:id]}", method: :delete %>
       <% end %>
-      <%= form_tag("/black/#{@tea.id}/review", method: :post) do %>
+      <%= form_tag("/postings/#{params[:id]}/review", method: :post) do %>
       <%= flash[:alert] %><br/>
       <textarea placeholder="コメント" cols="40" rows="5" name="review"></textarea><br / >
       <input class="btn green" type="submit" value="送信">

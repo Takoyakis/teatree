@@ -7,6 +7,7 @@ resources :postings do
   collection do
     get 'search'
   end
+  resources :review, :only => [:new, :create]
 end
 
 resources :black, :only => [:index, :show] do
