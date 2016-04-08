@@ -61,7 +61,7 @@ class PostingsController < TeaInfoController
 
   private
   def posting_params
-    params.permit(:category_id, :name, :gram, :temperature, :time, :experience, :coment, :user_id, :image)
+    params.permit(:category_id, :name, :gram, :temperature, :time, :experience, :coment, :user_id)
   end
 
   def posting_image
