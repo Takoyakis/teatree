@@ -43,7 +43,7 @@
   <div class="float_left">
     <h3><%= @tea.name %>
       <div class="float_right">
-        <h4>飲んだ人：<%= @posting_user.name %></h4>
+        <h4>飲んだ人：<%= link_to "#{@posting_user.name}", "/users/#{@posting_user.id}" %></h4>
       </div>
     </h3>
 
