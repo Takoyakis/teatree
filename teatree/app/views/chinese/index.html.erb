@@ -44,7 +44,7 @@
   <% @chinese.each do |tea| %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <%= image_tag "#{tea.image}" %>
+        <%= link_to image_tag("#{tea.image}"), chinese_path(tea.id) %>
         <div class="caption">
           <h3><%= tea.name %></h3>
           <h4>投稿者：<%=link_to "#{tea.user.name}", "/users/#{tea.user.id}" %></h4>
