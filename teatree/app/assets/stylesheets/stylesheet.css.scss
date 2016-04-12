@@ -59,6 +59,12 @@ footer {
   width:1180px;
   background-color: #deb887;
   margin: 0 auto;
+  overflow-wrap: break-word;
+}
+
+.caption {
+  table-layout: fixed;
+  overflow-wrap: break-word;
 }
 
 .thumbnail {
@@ -80,7 +86,6 @@ footer {
 }
 
 .posting_form p {
- 
   width:280px;
 }
 

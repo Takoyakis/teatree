@@ -50,10 +50,12 @@
       <p>好きなお店：<%= @user.favorite_shop %></p>
       <p>わたしのこだわり：<%= @user.preference %></p>
     </div>
-    <% if @user.id == current_user.id %>
-      <div class="mypage_edit float_right">
-        <%= link_to "編集", edit_user_registration_path, :class => "btn btn-prymary green" %>
-      </div>
+    <% if user_signed_in? %>
+      <% if @user.id == current_user.id %>
+        <div class="mypage_edit float_right">
+          <%= link_to "編集", edit_user_registration_path, :class => "btn btn-prymary green" %>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <div>
