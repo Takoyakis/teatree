@@ -10,8 +10,8 @@
         <div class="float_left">
           <form accept-charset="UTF-8" action="/postings/search" method="get">
             <p>お茶
-                <input placeholder="お茶のなまえ" type="text" name="keyword" value="">
-                <input type="submit" value="検索">
+              <input placeholder="お茶のなまえ" type="text" name="keyword" value="">
+              <input type="submit" value="検索">
             </p>
             </form>
         </div>
@@ -47,7 +47,7 @@
       </div>
     </h3>
 
-    <%= image_tag @tea.image %>
+    <%= image_tag @tea.image, :class => "triming" %>
   </div>
   <div class="float_left">
     <p>茶葉の量：<%= @tea.gram %>g</p>
