@@ -8,4 +8,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << [:name]
     devise_parameter_sanitizer.for(:account_update) << [:avatar, :favorite_tea_type, :favorite_leaf, :favorite_shop, :preference]
   end
+
+
 end
