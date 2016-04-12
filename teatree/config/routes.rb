@@ -4,7 +4,7 @@ devise_for :users, controllers: {
 }
 
 root 'teas#index'
-resources :users
+resources :users, :except => [:edit]
 resources :teas
 resources :postings do
   collection do
