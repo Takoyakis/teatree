@@ -63,7 +63,7 @@
       <% @user.postings.order("created_at DESC").each do |mytea| %>
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
-            <%= image_tag "#{mytea.image}" %>
+            <%= link_to image_tag("#{mytea.image}"), posting_path(mytea.id ) %>
             <div class="caption">
               <h3><%= mytea.name %></h3>
               <p><%= mytea.experience %></p>
