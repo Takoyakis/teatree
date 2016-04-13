@@ -47,7 +47,8 @@ footer {
   text-align: center;
   font-size: 18px;
   height :40px;
-  min-width:1300px;
+  width: auto;
+  width: 100%;
   margin: auto;
 }
 
@@ -56,7 +57,7 @@ footer {
 }
 
 .content {
-  width:1180px;
+  max-width:1180px;
   background-color: #deb887;
   margin: 0 auto;
   overflow-wrap: break-word;
